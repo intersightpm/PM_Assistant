@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pm-assistant"
+version = "0.1.0"
+description = "MCP-first PM assistant toolkit for Codex-driven feedback analysis, PRD writing, research, adoption tracking, and Jira updates."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["requests", "python-dotenv", "PyYAML", "mcp[cli]", "snowflake-connector-python", "pandas", "sqlparse", "cryptography"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+pm-assistant = "pm_assistant.cli:main"
+feedback-analyzer = "pm_assistant.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

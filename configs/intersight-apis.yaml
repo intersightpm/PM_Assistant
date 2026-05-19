@@ -1,0 +1,208 @@
+feature_name: intersight apis
+aliases:
+  - intersight api
+  - intersight apis
+  - intersight API
+  - intersight APIs
+  - api documentation
+  - API documentation
+  - api docs
+  - API docs
+  - developer documentation
+  - docs.intersight.com
+  - api reference
+  - API reference
+  - API Command Reference
+  - api command reference
+  - REST API
+  - REST APIs
+  - swagger
+  - OpenAPI
+related_terms:
+  - endpoint
+  - schema
+  - example
+  - sample
+  - payload
+  - request body
+  - response body
+  - moid
+  - object model
+  - sdk
+  - terraform
+  - automation
+  - bulk
+  - pagination
+  - filter
+  - query
+  - authentication
+  - authorization
+  - token
+exclude_terms:
+  - Webex API
+  - Webex APIs
+  - Meraki API
+  - ThousandEyes API
+related_terms_match_without_feature: false
+source_filters:
+  collection_profile: accuracy
+  webex_room_contains:
+    - Ask Intersight
+    - Intersight Feedback
+    - IIS Foundations
+    - Intersight Core Team
+  webex_max_rooms: 12
+  webex_accuracy_room_contains:
+    - Ask Intersight
+    - Intersight Feedback
+    - IIS Foundations
+    - Intersight Core Team
+  webex_accuracy_max_rooms:
+  webex_excluded_room_contains: []
+  webex_default_years: 1
+  webex_extended_years: 3
+  webex_extended_room_contains:
+    - Ask Intersight
+    - Intersight Feedback
+    - IIS Foundations
+    - Intersight Core Team
+  aha_collect_comments: true
+  aha_max_pages: 25
+  aha_time_budget_seconds: 0
+category_hints:
+  - API Documentation Accuracy and Completeness
+  - API Examples, Samples, and Recipes
+  - API Schema, Object Model, and Field Discoverability
+  - Authentication, Authorization, and Access Control
+  - Query, Filtering, Sorting, and Pagination
+  - API Coverage, Parity, and Missing Endpoints
+  - Automation, SDK, and Infrastructure-as-Code Workflows
+  - Error Handling, Debuggability, and Operational Guidance
+  - Redfish, CIMC, UCSM
+  
+report:
+  title: Intersight APIs and API Documentation Feature Feedback Report
+  source_name: evidence.json
+  matching_label: Intersight API/API documentation evidence items
+  general_category: General Intersight API or Documentation Enhancement
+  request_patterns:
+    - new feedback
+    - customer feedback
+    - "participant domain:"
+    - "account name:"
+    - "description:"
+    - customer is (?:asking|looking|trying|having|facing|requesting|using|configuring)
+    - customer needs?
+    - customers? (?:wants?|asking|looking|trying|having|facing|needs?|requested|requesting)
+    - one of (?:my|our) customers?
+    - customer request
+    - request:\s+\w
+    - ^allow\b
+    - allow for
+    - would it be possible
+    - is it possible
+    - are there any plans
+    - any plans
+    - can we
+    - could this
+    - please consider
+    - please add
+    - please include
+    - should support
+    - support for
+    - wants? to know
+    - need(?:ed)? to
+    - we need
+    - we want
+    - i want
+    - issue
+    - problem
+    - error
+    - not working
+    - unable
+    - fails?
+    - missing
+    - incomplete
+    - confusing
+    - unclear
+    - how do i
+    - how can i
+    - documentation
+    - docs
+  exclude_patterns:
+    - figma\.com
+    - proposed agenda
+    - \bkick(?:-|\s)?off\b
+    - "meeting link:"
+    - based on our discussion
+    - please find (?:the )?(?:updates|ux mockups|mocks|mockups)
+    - \bmocks? (?:are|is) accurate\b
+    - \bux screens?\b
+    - \bux mockups?\b
+    - \broadmap update\b
+    - external roadmap
+    - created the theme and initiative
+    - scheduled? the work
+    - all of them have been groomed
+    - provide your feedback
+    - please review .* share your feedback
+    - \bi am a pm for intersight\b
+    - \bchecking before i reach out\b
+    - \bcan we discuss prioritizing\b
+  categories:
+    - name: API Documentation Accuracy and Completeness
+      description: Missing, stale, confusing, or incomplete API documentation that blocks customers from using Intersight APIs confidently.
+      patterns: ["\\bdocs?\\b", "\\bdocumentation\\b", "\\bdocumented\\b", "\\bdeveloper portal\\b", "\\bapi reference\\b", "\\bapi command reference\\b", "\\bcommand reference\\b", "\\bswagger\\b", "\\bopenapi\\b", "\\bunclear\\b", "\\bconfusing\\b", "\\bincomplete\\b", "\\bmissing\\b"]
+      summary: Improve the accuracy, completeness, and navigability of Intersight API documentation.
+      stories:
+        - text: As an API user, I want complete and accurate Intersight API documentation so I can implement integrations without trial and error.
+          patterns: []
+    - name: API Examples, Samples, and Recipes
+      description: Requests for examples, payload samples, recipes, and end-to-end API usage guidance.
+      patterns: ["\\bexample\\b", "\\bexamples\\b", "\\bsample\\b", "\\bsamples\\b", "\\brecipe\\b", "\\bhow do i\\b", "\\bhow can i\\b", "\\bpayload\\b", "\\brequest body\\b", "\\bresponse body\\b"]
+      summary: Add concrete API examples and workflow recipes.
+      stories:
+        - text: As an API user, I want examples and working request payloads so I can automate common Intersight tasks quickly.
+          patterns: []
+    - name: API Schema, Object Model, and Field Discoverability
+      description: Discoverability of object model details, schemas, field names, relationships, MOIDs, and payload semantics.
+      patterns: ["\\bschema\\b", "\\bobject model\\b", "\\bmoid\\b", "\\bfield\\b", "\\bfields\\b", "\\battribute\\b", "\\brelationship\\b", "\\bjson\\b", "\\bmodel\\b"]
+      summary: Make API object schemas, relationships, and field semantics easier to discover.
+      stories:
+        - text: As an API user, I want clear schemas and field descriptions so I can map Intersight objects correctly in automation.
+          patterns: []
+    - name: Authentication, Authorization, and Access Control
+      description: API keys, tokens, roles, permissions, authentication flows, and authorization failures.
+      patterns: ["\\bauth(?:entication|orization)?\\b", "\\bapi key\\b", "\\btoken\\b", "\\bbearer\\b", "\\brole\\b", "\\bpermission\\b", "\\brbac\\b", "\\b401\\b", "\\b403\\b"]
+      summary: Clarify or improve API authentication, authorization, and permissions behavior.
+      stories:
+        - text: As an API user, I want clear authentication and permission guidance so my integrations can access the right Intersight resources securely.
+          patterns: []
+    - name: Query, Filtering, Sorting, and Pagination
+      description: API query semantics including OData filters, sorting, pagination, search, and result limits.
+      patterns: ["\\bfilter\\b", "\\bfilters\\b", "\\bquery\\b", "\\bqueries\\b", "\\bodata\\b", "\\bsort\\b", "\\bsorting\\b", "\\bpagination\\b", "\\bpage\\b", "\\blimit\\b", "\\bcontains\\(", "\\bselect\\b"]
+      summary: Improve query, filtering, sorting, and pagination support or documentation.
+      stories:
+        - text: As an API user, I want predictable filtering, sorting, and pagination so I can retrieve only the Intersight data my workflow needs.
+          patterns: []
+    - name: API Coverage, Parity, and Missing Endpoints
+      description: Missing API endpoints, gaps between UI and API capability, coverage gaps for resources, and feature parity requests.
+      patterns: ["\\bendpoint\\b", "\\bendpoints\\b", "\\bmissing endpoint\\b", "\\bapi support\\b", "\\bparity\\b", "\\bui\\b", "\\bnot available\\b", "\\bnot exposed\\b", "\\bcoverage\\b"]
+      summary: Close API coverage gaps and expose UI capabilities through supported APIs.
+      stories:
+        - text: As an API user, I want Intersight API coverage to match important UI workflows so I can automate them reliably.
+          patterns: []
+    - name: Automation, SDK, and Infrastructure-as-Code Workflows
+      description: Feedback involving SDKs, scripts, Terraform, Ansible, CI/CD, and other automation workflows built on Intersight APIs.
+      patterns: ["\\bsdk\\b", "\\bterraform\\b", "\\bansible\\b", "\\bscript\\b", "\\bautomation\\b", "\\bautomate\\b", "\\bci/cd\\b", "\\binfrastructure as code\\b", "\\biac\\b"]
+      summary: Improve API support for automation and infrastructure-as-code workflows.
+      stories:
+        - text: As an automation engineer, I want Intersight APIs and docs to support SDK and infrastructure-as-code workflows so I can operationalize repeatable deployments.
+          patterns: []
+    - name: Error Handling, Debuggability, and Operational Guidance
+      description: API errors, validation messages, troubleshooting guidance, rate limits, and operational diagnostics.
+      patterns: ["\\berror\\b", "\\berrors\\b", "\\bfail(?:ed|ure|ures)?\\b", "\\bvalidation\\b", "\\bdebug\\b", "\\btroubleshoot\\b", "\\brate limit\\b", "\\b429\\b", "\\b500\\b", "\\b400\\b", "\\bnot working\\b"]
+      summary: Improve API error messages, troubleshooting guidance, and operational diagnostics.
+      stories:
+        - text: As an API user, I want actionable API errors and troubleshooting guidance so I can resolve integration failures faster.
+          patterns: []

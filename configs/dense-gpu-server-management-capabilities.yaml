@@ -1,0 +1,191 @@
+feature_name: dense GPU server management capabilities
+aliases:
+  - dense GPU
+  - GPU server
+  - GPU servers
+  - AI server
+  - AI servers
+  - AI POD
+  - AI PODs
+  - C845A
+  - C885A
+  - C845A M8
+  - C885A M8
+  - Mustang
+  - Bronco
+  - GPU metrics
+  - GPU inventory
+  - GPU monitoring
+  - GPU firmware
+related_terms:
+  - Intersight
+  - UCS
+  - inventory
+  - health
+  - alarms
+  - alerts
+  - monitoring
+  - firmware
+  - firmware update
+  - policy based management
+  - server profile
+  - profiles
+  - power
+  - thermal
+  - fan
+  - temperature
+  - vKVM
+  - vMedia
+  - OpenShift
+  - plugin
+  - RMA
+  - lifecycle management
+  - adapter link alarms
+  - OCP
+  - VLAN
+exclude_terms:
+  - Webex Desk
+  - Desk Pro
+  - Desk Mini
+related_terms_match_without_feature: false
+source_filters:
+  collection_profile: accuracy
+  webex_accuracy_room_contains:
+    - Bronco/Mustang
+    - Compute AI Acceleration Hub
+    - AI-ML Hardware
+    - NVIDIA AI Engine Council
+    - Compute | Product Management
+    - Compute | PM & TME
+    - Ask Intersight
+    - Intersight Feedback
+    - Cisco Intersight Extended Team
+    - Intersight IIS UX
+    - Cisco AI
+    - Compute Roadmap Development
+    - Compute Community
+    - OpenShift
+  webex_accuracy_max_rooms:
+  webex_excluded_room_contains:
+    - Ask Cisco Desk Series
+  webex_default_years: 3
+  webex_extended_years: 4
+  webex_extended_room_contains:
+    - Bronco/Mustang
+    - Compute AI Acceleration Hub
+    - AI-ML Hardware
+    - NVIDIA AI Engine Council
+    - Intersight Feedback
+    - Ask Intersight
+  aha_collect_comments: true
+  aha_max_pages: 25
+  aha_time_budget_seconds: 0
+category_hints:
+  - Dense GPU Server Inventory, Health, and Monitoring
+  - GPU Metrics, Telemetry, and Troubleshooting
+  - Firmware, BIOS, and Lifecycle Management
+  - Policy-Based Management, Profiles, and Configuration
+  - OpenShift and AI Platform Integrations
+  - Power, Thermal, and Hardware Operations
+report:
+  title: Dense GPU Server Management Capabilities Feature Feedback Report
+  source_name: evidence.json
+  matching_label: dense GPU server management evidence items
+  general_category: Dense GPU Server Management Enhancement
+  request_patterns:
+    - new feedback
+    - customer feedback
+    - "participant domain:"
+    - "account name:"
+    - "description:"
+    - customer is (?:asking|looking|trying|having|facing|requesting|using|configuring)
+    - customers? (?:wants?|asking|looking|trying|having|facing|needs?|requested|requesting)
+    - need(?:ed)? to
+    - we need
+    - we want
+    - i want
+    - would like
+    - not supported
+    - not available
+    - unable
+    - missing
+    - issue
+    - problem
+    - fails?
+    - error
+    - how do
+    - how can
+    - is it possible
+    - any plans
+    - would love
+    - enhancement request
+    - when .* available
+    - when .* support
+    - do we have
+  exclude_patterns:
+    - recording link
+    - password:
+    - watch the livestream
+    - in the news
+    - industry news
+    - diamond sponsor
+    - stock
+    - seller resources
+    - classroom training
+    - customer meetings
+    - conference
+    - knowledge byte
+    - compute illuminate
+    - excellent blog
+    - exam vouchers
+    - trial RunAI key
+    - nvidia license
+    - licensing-guide
+    - vgpu.html
+    - Supercomputing
+    - bookings for AI Pods
+    - huge reliability issues with AI Servers
+    - please review .* share your feedback
+  categories:
+    - name: Dense GPU Server Inventory, Health, and Monitoring
+      description: Requests for complete Intersight visibility into GPU server inventory, health, alarms, advisories, and monitoring readiness.
+      patterns: ["\\binventory\\b", "\\bhealth\\b", "\\balarm", "\\badvisor", "\\bmonitor", "\\bvisibility\\b", "\\btelemetry\\b", "\\bc845a\\b", "\\bc885a\\b", "\\bbronco\\b", "\\bmustang\\b"]
+      summary: Provide complete inventory, health, alarm, and monitoring coverage for dense GPU servers.
+      stories:
+        - text: As an infrastructure operator, I want complete health, inventory, and alarm visibility for dense GPU servers so I can operate AI infrastructure confidently.
+          patterns: []
+    - name: GPU Metrics, Telemetry, and Troubleshooting
+      description: Requests for GPU-specific metrics, observability, and recovery guidance.
+      patterns: ["\\bgpu metrics\\b", "\\bmetrics\\b", "\\bpowering off\\b", "\\brecover\\b", "\\btroubleshoot", "\\btemperature\\b", "\\bfan\\b", "\\bpower consumption\\b"]
+      summary: Expose GPU-specific metrics and troubleshooting signals.
+      stories:
+        - text: As an AI platform operator, I want GPU metrics and recovery guidance so I can detect and resolve accelerator issues before workloads are affected.
+          patterns: []
+    - name: Firmware, BIOS, and Lifecycle Management
+      description: Firmware updates, BIOS policy settings, firmware guardrails, and lifecycle operations for GPU platforms.
+      patterns: ["\\bfirmware\\b", "\\bfw update", "\\bbios\\b", "\\bdowngrade\\b", "\\blifecycle\\b", "\\bupgrade\\b"]
+      summary: Improve firmware, BIOS, and lifecycle workflows for GPU servers.
+      stories:
+        - text: As a server administrator, I want firmware and BIOS lifecycle management for GPU systems so I can update and protect dense GPU hardware safely.
+          patterns: []
+    - name: Policy-Based Management, Profiles, and Configuration
+      description: Server profiles, policies, configuration settings, and policy-based management for dense GPU systems.
+      patterns: ["\\bpolicy", "\\bprofile", "\\bconfiguration\\b", "\\bconfigur", "\\bserver profile\\b"]
+      summary: Add policy-driven configuration and profile support for dense GPU servers.
+      stories:
+        - text: As a server administrator, I want profile and policy-based management for dense GPU servers so configuration can be standardized across AI fleets.
+          patterns: []
+    - name: OpenShift and AI Platform Integrations
+      description: Integrations that expose server and GPU management into OpenShift, AI POD, VMware, or other AI platform operations.
+      patterns: ["\\bopenshift\\b", "\\bplugin\\b", "\\bai pod", "\\bvmware\\b", "\\bvcf\\b", "\\bcluster\\b", "\\brdma\\b"]
+      summary: Integrate dense GPU server management into AI platform workflows.
+      stories:
+        - text: As a platform administrator, I want dense GPU server management integrated into AI and OpenShift workflows so app and infrastructure teams can coordinate operations.
+          patterns: []
+    - name: Power, Thermal, and Hardware Operations
+      description: Power control, thermal data, fan behavior, RMA, vKVM, vMedia, and hardware operational controls.
+      patterns: ["\\bpower\\b", "\\bthermal\\b", "\\bfan\\b", "\\btemperature\\b", "\\brma\\b", "\\bvKVM\\b", "\\bvMedia\\b", "\\bserial over lan\\b"]
+      summary: Provide operational controls and hardware telemetry needed to manage dense GPU servers.
+      stories:
+        - text: As an operator, I want power, thermal, console, and hardware-operation controls for dense GPU servers so I can manage incidents without leaving my operating console.
+          patterns: []

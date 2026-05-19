@@ -1,0 +1,9 @@
+﻿requests
+python-dotenv
+PyYAML
+mcp[cli]
+pytest
+snowflake-connector-python
+pandas
+sqlparse
+cryptography

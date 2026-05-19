@@ -1,0 +1,280 @@
+feature_name: webhooks
+aliases:
+  - webhook
+  - web hooks
+  - web-hooks
+  - event notifications
+  - outbound notifications
+related_terms:
+  - payload
+  - receiver
+  - headers
+  - authentication
+  - authorization
+  - delivery
+  - retry
+  - events
+  - alarms
+  - notification
+  - signature
+  - secret
+exclude_terms:
+  - meeting webhook
+related_terms_match_without_feature: false
+source_filters:
+  collection_profile: accuracy
+  webex_room_contains:
+    - Ask Intersight
+    - Intersight Feedback
+    - IIS Foundations
+    - Intersight Core Team
+  webex_max_rooms: 12
+  webex_accuracy_room_contains: []
+  webex_accuracy_max_rooms:
+  webex_excluded_room_contains: []
+  webex_default_years: 1
+  webex_extended_years: 3
+  webex_extended_room_contains:
+    - Ask Intersight
+    - Intersight Feedback
+    - IIS Foundations
+    - Intersight Core Team
+  aha_collect_comments: true
+  aha_max_pages: 25
+  aha_time_budget_seconds: 0
+category_hints:
+  - Authentication and Authorization
+  - Infrastructure Configuration - TLS, Certificates, Ports and Proxy
+  - Custom Headers and Receiver Requirements
+  - Integration Destinations, Payload Fields and Object Context
+  - Audit Log Events
+  - Alarm and Event Delivery Coverage
+  - Delivery Reliability and Recovery
+  - CVA and Appliance Support
+  - Filtering and Query Capabilities
+report:
+  title: Webhook Feature Enhancement Feedback Report
+  source_name: evidence.json
+  matching_label: webhook-matching evidence items
+  general_category: General Webhook Enhancement
+  request_patterns:
+    - new feedback
+    - customer feedback
+    - "participant domain:"
+    - "account name:"
+    - "description:"
+    - customer is (?:asking|looking|trying|having|facing|requesting|using|configuring)
+    - customer needs?
+    - customers? (?:wants?|asking|looking|trying|having|facing|needs?|requested|requesting)
+    - one of (?:my|our) customers?
+    - customer request
+    - request:\s+\w
+    - ^allow\b
+    - allow for
+    - would it be possible
+    - is it possible
+    - are there any plans
+    - any plans
+    - can we
+    - could this
+    - please consider
+    - please add
+    - please include
+    - should support
+    - support for
+    - wants? to know
+    - need custom
+    - need(?:ed)? to
+    - we need
+    - we want
+    - i want
+    - issue
+    - problem
+    - error
+    - not working
+    - not being sent
+    - unable
+    - fails?
+    - delayed
+  exclude_patterns:
+    - figma\.com
+    - proposed agenda
+    - \bkick(?:-|\s)?off\b
+    - "meeting link:"
+    - based on our discussion
+    - please find (?:the )?(?:updates|ux mockups|mocks|mockups)
+    - \bmocks? (?:are|is) accurate\b
+    - \bux screens?\b
+    - \bux mockups?\b
+    - \broadmap update\b
+    - call out .* in .* roadmap
+    - \btheme\b.*\binitiative\b
+    - this theme has all the other webhook related enhancements
+    - created the theme and initiative
+    - scheduled? the work
+    - external roadmap
+    - all of them have been groomed
+    - could you pls confirm if this is how
+    - computed based on their ability to successfully receive notifications
+    - verify connection
+    - please review .* share your feedback
+    - provide your feedback
+    - \bwe could document\b
+    - \bwe should (?:just )?document\b
+    - document explicitly
+    - as i mentioned in the bug
+    - could it be that the customer's
+    - ^yes, .*mocks? .* accurate
+    - ^padmanabhan .*webhooks alarms.*documentation
+    - \bi am a pm for intersight\b
+    - \bcould you pls confirm\b
+    - \bso, just to make sure i'm clear\b
+    - \bsolution engineer wants to know\b
+    - \bthis is from an ongoing chat\b
+    - \bi wanted to talk with you\b
+    - \ball other features you are considering\b
+    - \bthe one thing that remains to be clarified\b
+    - \brolled out to production\b
+    - \badding the banner\b
+    - \bi want to explore\b
+    - \bdo we have one already\b
+    - \bfrom the logs i see\b
+    - \bhere is the list of webhooks configured\b
+    - \bemail domains\b
+    - \badvanced email notification filters\b
+    - \bemail notification triggered\b
+    - \bType["']?:\s*["']?email\b
+    - notification\.SendEmail
+    - \bwebhooks and other screens\b
+    - \blicense state\b
+    - \bsubscription enabled\b
+    - \baction state\b
+    - \bmo type\b
+    - \bthe issue has been for outbound webhook only\b
+    - \bonly \d+ of \d+ customers use webhooks\b
+    - \bonly \d+ customers have configured webhooks\b
+    - \bvery low adoption\b
+    - \badoption is a rounding error\b
+    - \bmore than half of them have failing webhooks\b
+    - \bi setup time for us to chat about webhooks\b
+    - \bneed ux work\b
+    - \bux expertise\b
+    - \bi will review\b
+    - \bwhen validating the webhook\b
+    - \bcan we discuss prioritizing\b
+    - \bchecking before i reach out\b
+    - \bdavid's comment in aha\b
+    - \bcurrent proposal\b
+    - \bis the customer facing any issues\b
+    - \bi can capture the issues here\b
+    - \bideally a webhook .* should work\b
+    - \bcustomer facing any issues with\b
+    - ^who is responsible for webhooks\??$
+    - ^thanks for the web hook suggestion!?$
+    - ^webhook is likely the first option$
+    - ^not exactly a webhook, but there is syslog option on cva$
+    - ^correct,
+    - ^if it's htpass authentication
+    - ^there are many ways how intersight can integrate
+    - ^the authorization header in webhooks or something else\?
+    - ^looks like a bug\. i've filed
+  categories:
+    - name: Authentication and Authorization
+      description: Authentication schemes, tokens, signatures, secrets, credentials, and receiver authorization requirements.
+      patterns: ["\\bauth(?:entication|orization)?\\b", "\\boauth\\b", "\\bbearer\\b", "\\btoken\\b", "\\bsecret\\b", "\\bsignature\\b", "\\bhmac\\b", "\\b401\\b", "\\blogin\\b", "\\bpassword\\b", "\\bbasic\\b"]
+      summary: Expand webhook authentication beyond the current shared-secret/signature behavior.
+      summaries:
+        - text: Support token or credential-based authentication expected by webhook receivers.
+          patterns: ["\\btoken\\b", "\\bbearer\\b", "\\b401\\b"]
+      stories:
+        - text: As an admin, I want webhook authentication to support bearer or token-based schemes so I can integrate with receivers that require them.
+          patterns: ["\\btoken\\b", "\\bbearer\\b"]
+        - text: As an admin, I want webhook authentication to support username/password or basic authentication so I can connect to protected endpoints.
+          patterns: ["\\blogin\\b", "\\bpassword\\b", "\\bbasic\\b"]
+        - text: As an admin, I want more flexible webhook authentication options so I can meet third-party receiver requirements.
+          patterns: []
+    - name: TLS, Certificates, and Ports
+      description: HTTPS, certificate validation, allowed ports, and connection constraints for webhook endpoints.
+      patterns: ["\\bssl\\b", "\\btls\\b", "\\bcertificate\\b", "\\bcert\\b", "\\bhttps?\\b", "\\bport\\b", "\\b443\\b", "\\bproxy\\b"]
+      summary: Improve TLS and certificate handling for HTTPS webhook endpoints.
+      summaries:
+        - text: Support required custom endpoint ports or clarify/enforce port constraints.
+          patterns: ["\\bport\\b", "\\b443\\b"]
+      stories:
+        - text: As an admin, I want webhook endpoints to support the ports my receiver requires so I can integrate with existing infrastructure.
+          patterns: ["\\bport\\b", "\\b443\\b"]
+        - text: As an admin, I want appliance webhooks to honor required proxy/network configuration so outbound delivery works in restricted environments.
+          patterns: ["\\bproxy\\b"]
+        - text: As an admin, I want webhook TLS and certificate handling to work with customer-managed certificates so secure integrations succeed.
+          patterns: []
+    - name: Custom Headers and Receiver Requirements
+      description: Configurable outbound headers and receiver-specific HTTP request requirements.
+      patterns: ["\\bcustom headers?\\b", "\\bheaders?\\b", "\\breceiver\\b"]
+      summary: Allow configurable outbound headers and receiver-specific request settings.
+      stories:
+        - text: As an admin, I want to configure custom HTTP headers on webhook requests so I can satisfy receiver-specific requirements.
+          patterns: []
+    - name: Payload Fields and Object Context
+      description: Additional fields in webhook payloads, object names, labels, tags, and context that reduce follow-up API calls.
+      patterns: ["\\bpayload\\b", "\\bjson\\b", "\\bfields?\\b", "\\btags?\\b", "\\blabel\\b", "\\bprofile name\\b", "\\bservice profile\\b", "\\baffectedobject\\b", "\\bmoid\\b", "\\bobject type\\b"]
+      summary: Include richer object context and fields directly in webhook payloads.
+      stories:
+        - text: As an operator, I want webhook payloads to include object names, labels, tags, and profile context so monitoring tools can act without extra lookups.
+          patterns: ["\\btags?\\b", "\\blabel\\b", "\\bprofile\\b"]
+        - text: As an operator, I want richer webhook payload details so downstream tools can identify and process events correctly.
+          patterns: []
+    - name: Audit Log Events
+      description: Webhook coverage for audit logs, login monitoring, and change tracking events.
+      patterns: ["\\baudit\\b", "\\blog(?:s|in)?\\b", "\\bchange logs?\\b"]
+      summary: Expose audit logs or login/change events through webhooks.
+      stories:
+        - text: As a security operator, I want audit log and login/change events delivered through webhooks so I can monitor administrative activity.
+          patterns: []
+    - name: Alarm and Event Delivery Coverage
+      description: Event types, alarm updates, backup status, server profile changes, and notification coverage sent through webhooks.
+      patterns: ["\\balarm\\b", "\\balarms\\b", "\\bevent\\b", "\\bevents\\b", "\\bnotification\\b", "\\bnotify\\b", "\\bbackup\\b", "\\bserver profile\\b", "\\bworkflow\\b", "\\bworkflowinfo\\b"]
+      summary: Expand which alarms, events, and state changes can be delivered by webhook.
+      summaries:
+        - text: Add backup status notifications with optional webhook delivery.
+          patterns: ["\\bbackup\\b"]
+      stories:
+        - text: As an admin, I want backup status notifications available through webhook delivery so I can monitor scheduled backups automatically.
+          patterns: ["\\bbackup\\b"]
+        - text: As an operator, I want server profile and workflow state changes available as webhook events so I can automate operational follow-up.
+          patterns: ["\\bserver profile\\b", "\\bworkflow\\b"]
+        - text: As an operator, I want broader alarm and event coverage through webhooks so external monitoring systems receive the events I care about.
+          patterns: []
+    - name: Delivery Reliability and Recovery
+      description: Delayed, missing, failed, inactive, or disconnected webhook deliveries and recovery behavior.
+      patterns: ["\\bdelayed\\b", "\\bnot being sent\\b", "\\bnot sent\\b", "\\bfail(?:ed|ure|ures)?\\b", "\\bdisconnect(?:ed|s)?\\b", "\\binactive\\b", "\\breconnect\\b", "\\bretr(?:y|ies)\\b", "\\bresend\\b", "\\b48 hours\\b"]
+      summary: Improve delivery reliability, reconnect behavior, and visibility into failed webhook sends.
+      stories:
+        - text: As an operator, I want webhook delivery failures, inactive states, and recovery behavior to be reliable and visible so notifications are not silently lost.
+          patterns: []
+    - name: Integration Destinations
+      description: Named third-party delivery targets such as Microsoft Teams, ServiceNow, SolarWinds, Splunk, Webex, and vRealize.
+      patterns: ["\\bteams\\b", "\\bms teams\\b", "\\bservicenow\\b", "\\bsolarwinds\\b", "\\bsplunk\\b", "\\bvrealize\\b", "\\bwebex\\b", "\\bthird party\\b", "\\b3rd party\\b", "\\bmonitoring systems?\\b", "\\bpagerduty\\b"]
+      summary: Improve webhook integration with named third-party tools and collaboration destinations.
+      stories:
+        - text: As an admin, I want webhook integration with Microsoft Teams so teams that do not use Webex can receive notifications.
+          patterns: ["\\bteams\\b", "\\bms teams\\b"]
+        - text: As an admin, I want webhook integration with ServiceNow so incidents and alerts can flow into ITSM workflows.
+          patterns: ["\\bservicenow\\b"]
+        - text: As an admin, I want webhook integration with PagerDuty so critical infrastructure events can create incidents.
+          patterns: ["\\bpagerduty\\b"]
+        - text: As an admin, I want webhooks to integrate cleanly with third-party monitoring and collaboration tools.
+          patterns: []
+    - name: CVA and Appliance Support
+      description: Webhook parity, support, and behavior across SaaS, CVA, PVA, and appliance deployments.
+      patterns: ["\\bcva\\b", "\\bpva\\b", "\\bappliance\\b", "\\bsaas\\b"]
+      summary: Clarify or add webhook support parity for CVA/PVA/appliance deployments.
+      stories:
+        - text: As an appliance customer, I want webhook capabilities to work consistently on CVA/PVA/appliance deployments so deployment model does not limit integrations.
+          patterns: []
+    - name: Filtering and Query Capabilities
+      description: Webhook filters, advanced queries, OData expressions, and event selection.
+      patterns: ["\\bfilter\\b", "\\bfilters\\b", "\\bquery\\b", "\\bqueries\\b", "\\bodata\\b", "\\bcontains\\(", "\\badvanced query\\b"]
+      summary: Improve webhook filter/query support for advanced event selection.
+      stories:
+        - text: As an admin, I want advanced webhook filters and queries so I can send only relevant events to receivers.
+          patterns: []
