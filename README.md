@@ -1,25 +1,42 @@
-﻿# PM Assistant
+# PM Assistant
 
-PM Assistant is an MCP-powered toolkit that helps Codex Desktop act as a product manager assistant. It connects Codex to PM data sources, collects evidence, and supports repeatable workflows for feedback scans, PRD drafting, desk research, Jira updates, and adoption summaries.
+PM Assistant is an MCP-powered toolkit that helps Codex Desktop act as a product manager's assistant. It connects Codex to PM data sources, collects evidence, and supports repeatable workflows for feedback scans, PRD drafting, desk research, Jira updates, and data analysis.
 
 Codex is the agent/runtime. PM Assistant provides the tools, connectors, auth helpers, prompts, skills, and artifact templates.
 
 ## What It Can Do
 
+- Connect to Webex, Aha, Jira, Snowflake and Intersight
 - Collect and search feedback from Aha, Webex, and Jira.
-- Query Snowflake read-only for adoption and usage analysis.
 - Prepare raw evidence for Codex-authored feedback reports.
+- Query Snowflake (read-only)  - it can run pre-built queries or generate new ones.
 - Draft PRDs from customer evidence and optional cited research.
-- Prepare Jira-ready update/comment drafts.
-- Store local run artifacts under `runs/<run-id>/`.
-- Reuse shared auth helpers for Aha, Webex, Jira, Snowflake, and Intersight.
-- Validate read-only Intersight API key auth for `us` and `eu` account profiles.
+- Read/Update  Jira.
+- Store local run artifacts under `runs/<run-id>/`. 
 
-## Team Setup
+## Install
+
+```powershell
+git clone https://github.com/intersightpm/PM_Assistant
+cd PM_Assistant
+python -m pip install -r requirements.txt
+python -m pip install -e .
+pm-assistant doctor --sources aha,jira,webex,snowflake
+```
+
+If `pm-assistant` is not on PATH:
+
+```powershell
+python -m pm_assistant.cli doctor --sources aha,jira,webex,snowflake
+```
+
+
+## Credentials Setup
 
 Do not commit credentials, `.env`, service env files, raw runs, or customer data.
 
-Each teammate should create their own local env files from templates:
+Each PM should create their own local env files from templates:
+You can configure the keys for each tool in the respective '.env' files
 
 ```powershell
 Copy-Item env_examples\aha.env.example aha.env
@@ -32,7 +49,7 @@ Copy-Item env_examples\intersight-eu.env.example intersight-eu.env
 
 Fill only the services you plan to use.
 
-Auth lookup order:
+Authentication lookup order:
 
 1. Project-local `.env` and `<service>.env`
 2. Optional central secrets directory: `C:\Users\<you>\.codex\secrets\`
@@ -44,21 +61,6 @@ Advanced users can override the central secret path:
 $env:CODEX_AUTH_SECRETS_DIR = "C:\path\to\secrets"
 ```
 
-## Install
-
-```powershell
-git clone <repo-url>
-cd PM_Assistant
-python -m pip install -r requirements.txt
-python -m pip install -e .
-pm-assistant doctor --sources aha,jira,webex,snowflake
-```
-
-If `pm-assistant` is not on PATH:
-
-```powershell
-python -m pm_assistant.cli doctor --sources aha,jira,webex,snowflake
-```
 
 ## Codex MCP Setup
 
@@ -87,7 +89,7 @@ Use PM Assistant to run Intersight doctor for all accounts.
 Plain English works for flexible tasks:
 
 ```text
-Analyze feedback for webhooks from Aha, Webex, and Jira. Tell me the top 5 product gaps.
+Analyze feedback for webhooks from Aha, Webex, and Jira. Generate a feedback report.
 ```
 
 ```text
@@ -97,11 +99,11 @@ Write a PRD for dense GPU server management using recent customer feedback.
 Skills make workflows more repeatable:
 
 ```text
-@feedback-scan webhooks
+@feedback-scan API
 @prd dense GPU server management
 @jira-update ABC-123
 @research webhook proxy support
-@adoption webhooks
+@adoption advisories
 ```
 
 MCP tools are usually invisible to the PM. Codex calls them to collect evidence, read resources, prepare inputs, validate artifacts, and optionally update Jira.
@@ -122,31 +124,6 @@ pm-assistant intersight-get --account us --path /api/v1/iam/Accounts
 pm-assistant mcp
 ```
 
-The old `feedback-analyzer` console command is kept as a compatibility alias.
-
-## Architecture
-
-```text
-Codex Desktop / CLI / IDE
-        |
-LLM agent loop
-        |
-PM Assistant skills + MCP prompts
-        |
-PM Assistant MCP server
-        |
-Core workflows
-        |
-Connectors + shared auth
-        |
-Aha / Webex / Jira / Snowflake / future apps
-        |
-runs/<topic-run>/ artifacts
-```
-
-Implemented connectors: Aha, Webex, Jira, Snowflake.
-Implemented read-only tools: Intersight `us` and `eu` profiles, including query/count/inventory/health/impact summaries.
-Adoption is source-agnostic and can combine Snowflake, Intersight, and future sources.
 
 ## GitHub Publish Checklist
 
@@ -164,7 +141,7 @@ New third-party apps should follow the connector pattern:
 - `collect(topic_config, date_range=None)`
 - optional safe read/search/update methods
 
-Future connector candidates include Salesforce, Gainsight, Confluence, SharePoint, Google Drive, GitHub, GitLab, Slack, Teams, and product telemetry systems.
+Future connector candidates include Fullstory, Whatfix, Figma etc.
 
 ## Safety
 
