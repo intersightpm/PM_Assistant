@@ -62,7 +62,7 @@ $env:CODEX_AUTH_SECRETS_DIR = "C:\path\to\secrets"
 ```
 
 
-## Codex MCP Setup
+## PM Assistant MCP Setup in Codex
 
 Add this to your Codex Desktop config, adjusting the path:
 
